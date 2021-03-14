@@ -1,0 +1,119 @@
+% !TEX TS-program = pdflatexmk
+\documentclass[12pt]{amsart}
+
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{amsmath,amssymb,amsthm,latexsym,graphicx}
+\usepackage[normalem]{ulem}
+\usepackage{setspace} %used for doublespacing, etc.
+\usepackage{hyperref}
+\usepackage{cancel}
+\usepackage[dvipsnames,usenames]{color}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+	\renewcommand{\headrulewidth}{0.5pt} % and the line
+	\headsep=1cm
+	
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+%Some useful environments.
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{axiom}{Axiom}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem*{exercise}{Exercise}%[section]
+
+%For GeoGebra
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\newcommand{\degre}{\ensuremath{^\circ}}
+
+
+%Some useful shortcuts for our favorite sets of numbers
+%Note, you can use these WITHOUT entering math mode
+
+\newcommand{\RR}{\ensuremath{\mathbb R}} 
+\newcommand{\NN}{\ensuremath{\mathbb N}}
+\newcommand{\ZZ}{\ensuremath{\mathbb Z}}
+\newcommand{\QQ}{{\ensuremath\mathbb Q}}
+\newcommand{\CC}{\ensuremath{\mathbb C}}
+\newcommand{\EE}{{\ensuremath\mathbb E}}
+
+%Some useful shortcuts for formatting lists
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+
+%Some useful shortcuts for formatting mathematical symbols
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\oimp}[1]{\overset{#1}{\iff}} %labeled iff symbol
+\newcommand{\bv}[1]{\ensuremath{ \vec{\mathbf{#1}}} } %makes a vector.
+\newcommand{\mc}[1]{\ensuremath{\mathcal{#1}}} %put something in caligraphic font
+\newcommand{\bsl}[1]{\texttt{\symbol{92}{\em #1}}} %for backslashes.
+\newcommand{\normale}{\trianglelefteq}
+\newcommand{\normal}{\triangleleft}
+
+%Commenting tools --- You can ignore these, but if you have a question about latex and send me your source file, I'll use them to explain stuff to you.
+\newcommand{\mpg}[1]{\marginpar{ #1}} %to put comments in margins
+\usepackage{soul}
+\definecolor{highlight}{rgb}{1,0.6,0.6}
+\sethlcolor{highlight}
+\newcommand{\hlm}[1]{\colorbox{highlight}{$\displaystyle #1$}}
+\newtheoremstyle{mycomment}{\topsep}{-0in}{\small \itshape \sffamily}{}{\small \itshape\sffamily}{:}{.5em}{}
+\theoremstyle{mycomment}
+\newtheorem*{acomment}{\color{BrickRed}{Comment}}
+\newcommand{\com}[1]{{\color{OliveGreen}\begin{acomment}{#1} 
+\end{acomment}\noindent}}
+\newcommand{\red}[1]{{\color{BrickRed} #1}}
+\newcommand{\blue}[1]{{\color{MidnightBlue}#1}}
+\newcommand{\green}[1]{{\color{OliveGreen}#1}}
+\newcommand{\mwrong}[2]{\red{\cancel{#1}}\green{#2}}
+\newcommand{\wrong}[2]{\red{\sout{#1}}\green{#2}}
+\definecolor{OliveGreen}{rgb}{.3,.5,.2}
+\definecolor{MidnightBlue}{rgb}{.3,.4,.6}
+\newcommand{\pts}[1]{\hfill\blue{{#1}/5}}
+
+\chead{MATH F305}
+\pagestyle{fancy}
+%Modify these items:
+\rhead{\emph{Stefano Fochesatto}}
+\lhead{\emph{HW \#2 --- 1/27/20}}
+
+
+\begin{document}
+
+\thispagestyle{fancy}
+\setstretch{2.5} %Use for 2.5 spacing. This is the default setting for homework in this class... so I have space to write comments.
+%\doublespacing %Use for double spacing
+%\singlespacing %Use for single spacing
+
+\begin{exercise}[\Box.2.1] In this problem, we consider distinct pencils $L$ and $K$ in $\RR^3$. Give a true statement about $L \cap K$, the set of lines contained in both pencils, and then prove your statement. Your statement and proof might include two more more cases. \\
+
+
+Statement: If $L$ and $K$ are distinct pencils in $\RR^3$ defined by different properties then $| L \cap K |$ can be at most 1. \\
+
+\begin{proof} 
+Suppose two distinct pencils $L$ and $K$ in $\RR^3$ and $L$ and $K$ are defined as pencils by different properties, without loss of generality letters say that $K$ is a set of parallel lines and $L$ is a set of lines which intersect at a single point. By our definition of $K$ we know that each line in $K$ can be described by the same direction vector, and by our definition of $L$ we know that each line in $L$ is described by a unique direction vector. Note since all lines in $K$ are described by one direction vector, and all lines in $L$ have unique direction vectors, there can only ever be at most one line in $L \cap K$ . 
+
+\end{proof}
+\end{exercise}
+
+
+ \end{document}
+
+
+  

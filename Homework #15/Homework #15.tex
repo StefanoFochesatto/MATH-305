@@ -1,0 +1,161 @@
+% !TEX TS-program = pdflatexmk
+\documentclass[12pt]{amsart}
+\usepackage{scalerel,amssymb}
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{gensymb}
+\usepackage{float}
+\usepackage[margin=1in]{geometry}
+\def\msquare{\mathord{\scalerel*{\Box}{gX}}}
+\usepackage{amsmath,amssymb,amsthm,latexsym,graphicx}
+\usepackage[normalem]{ulem}
+\usepackage{setspace} %used for doublespacing, etc.
+\usepackage{hyperref}
+\usepackage{cancel}
+\usepackage[dvipsnames,usenames]{color}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+	\renewcommand{\headrulewidth}{0.5pt} % and the line
+	\headsep=1cm
+	
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+%Some useful environments.
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{axiom}{Axiom}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem*{exercise}{Exercise}%[section]
+
+%For GeoGebra
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\newcommand{\degre}{\ensuremath{^\circ}}
+
+
+%Some useful shortcuts for our favorite sets of numbers
+%Note, you can use these WITHOUT entering math mode
+
+\newcommand{\RR}{\ensuremath{\mathbb R}} 
+\newcommand{\NN}{\ensuremath{\mathbb N}}
+\newcommand{\ZZ}{\ensuremath{\mathbb Z}}
+\newcommand{\QQ}{{\ensuremath\mathbb Q}}
+\newcommand{\CC}{\ensuremath{\mathbb C}}
+\newcommand{\EE}{{\ensuremath\mathbb E}}
+
+%Some useful shortcuts for formatting lists
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+
+%Some useful shortcuts for formatting mathematical symbols
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\oimp}[1]{\overset{#1}{\iff}} %labeled iff symbol
+\newcommand{\bv}[1]{\ensuremath{ \vec{\mathbf{#1}}} } %makes a vector.
+\newcommand{\mc}[1]{\ensuremath{\mathcal{#1}}} %put something in caligraphic font
+\newcommand{\bsl}[1]{\texttt{\symbol{92}{\em #1}}} %for backslashes.
+\newcommand{\normale}{\trianglelefteq}
+\newcommand{\normal}{\triangleleft}
+
+%Commenting tools --- You can ignore these, but if you have a question about latex and send me your source file, I'll use them to explain stuff to you.
+\newcommand{\mpg}[1]{\marginpar{ #1}} %to put comments in margins
+\usepackage{soul}
+\definecolor{highlight}{rgb}{1,0.6,0.6}
+\sethlcolor{highlight}
+\newcommand{\hlm}[1]{\colorbox{highlight}{$\displaystyle #1$}}
+\newtheoremstyle{mycomment}{\topsep}{-0in}{\small \itshape \sffamily}{}{\small \itshape\sffamily}{:}{.5em}{}
+\theoremstyle{mycomment}
+\newtheorem*{acomment}{\color{BrickRed}{Comment}}
+\newcommand{\com}[1]{{\color{OliveGreen}\begin{acomment}{#1} 
+\end{acomment}\noindent}}
+\newcommand{\red}[1]{{\color{BrickRed} #1}}
+\newcommand{\blue}[1]{{\color{MidnightBlue}#1}}
+\newcommand{\green}[1]{{\color{OliveGreen}#1}}
+\newcommand{\mwrong}[2]{\red{\cancel{#1}}\green{#2}}
+\newcommand{\wrong}[2]{\red{\sout{#1}}\green{#2}}
+\definecolor{OliveGreen}{rgb}{.3,.5,.2}
+\definecolor{MidnightBlue}{rgb}{.3,.4,.6}
+\newcommand{\pts}[1]{\hfill\blue{{#1}/5}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chead{MATH F305}
+\pagestyle{fancy}
+%Modify these items:
+\rhead{\emph{Stefano Fochesatto}}
+\lhead{\emph{HW \#15 --- \today}}
+
+
+\begin{document}
+\thispagestyle{fancy}
+
+\begin{enumerate}
+
+\item( Problem $\msquare$ 10.1)\\
+\\
+\setstretch{1.3} Use the side and top views, as appropriate, to explain whether the construction in Figure $10.6$ gives us the viewing target $T$, assuming $A'B'C'D'$ is the perspective image of the square $ABCD$. The construction contains these four steps.\\
+\begin{enumerate}
+\item Draw a line through $B'$ parallel to the horizon $V_LV_R$; the intersection of this line with $C'D'$ determines the point $P_1'$.\\
+\item Locate the point $P'_2 = (P'_1V_R)\cdot(A'B')$\\
+
+\item Locate the point $P'_3 = (D_1P'_2)\cdot(B'C')$\\
+
+\item Let $T =  (A'P'_3)\cdot(V_LV_R)$\\
+\end{enumerate}
+
+\textbf{Answer:} First, consider the top view construction of the scene in Figure $10.6$.
+\begin{figure}[H]
+\caption{Top View of Figure $10.6$}
+\centering
+\includegraphics[width=\textwidth]{"Perp".png}
+\end{figure}
+
+
+
+ Note that by definition the line $\overline{P_2P_3}$ is parallel to $\overline{AC}$, and thus $\triangle P_3BP_2 \approx \triangle CBA$ by AAA. Therefore since $BA = BC$ we know that $BP_2 = BP_3$. We know that $P_2 = \overline{P'_1V_R} \cdot \overline{A'B'}$, therefore it follows that $\overline{P_1P_2}$ is parallel to $\overline{CB}$ and $\overline{DA}$ thus $P_1P_2 = BA$ and $\angle P_1P_2B$ is right. Note by definition $\angle ABP_3$ is right.
+Thus we know that $\triangle ABP_3 \cong \triangle P_1P_2B$ by SAS,
+\begin{align*}
+BP_2 =& BP_3,\\
+\angle P_1P_2B =& \angle ABP_3,\\
+P_1P_2 =& BA.
+\end{align*}
+ We can see that in order to transform $\triangle P_1P_2B$ to $\triangle ABP_3$ we must rotate by $90\degree$ and translate by $\frac{|AB|}{2}$ along $\overline{AB}$. Thus it must follow that corresponding sides $P_3A$ and $BP_1$ are perpendicular. Since $\overline{BP_1}$ was defined as being parallel to the picture plane we know that $P_3A$ is also perpendicular to the picture plane. Thus $BP_1$ must intersect $T$.
+
+
+
+
+
+
+
+\setstretch{2.5}
+\vspace{1in}
+
+
+\item( Problem $\triangle$ 10.1)\\
+\\
+\setstretch{1.3} Write a word that is at least four letters long in two-point perspective... \\\\
+\textbf{Answer:} To share my process the first thing I did was draw a cube in 2-point perspective. Using the diagonal of the top face I constructed a cube of the same size which shares a side with the original cube. Repeating this process until I had a rectangular prism with length that is four times its width. Then I chose a point on the top-face, length edge of the first cube which would decide the space between each letter, and then translated that point to the other three cubes. From here the problem is simply to draw the letters on the front face of each cube and then extend the face to the back side of the cube. Originally I had planned to draw the word "TILL" however, and this is embarrassing to admit, I accidentally drew an "L" instead of an "I" for the second letter. This lead me to pivot to the acronym "TLC" in honor of the 2nd most popular girl group of all time. For some flare, and to satisfy the 4 character minimum I put an exclamation point at the end. Finally to add a little context I put the word on a stage.\\
+\begin{figure}[H]
+\caption{TLC! on a Stage}
+\centering
+\includegraphics[width=\textwidth]{"ArtProj 2".png}
+\end{figure}
+
+\setstretch{2.5}
+\vspace{1in}
+
+
+\end{enumerate}
+ \end{document}
+ \end

@@ -1,0 +1,22 @@
+\definecolor{wrwrwr}{rgb}{0.3803921568627451,0.3803921568627451,0.3803921568627451}
+\definecolor{rvwvcq}{rgb}{0.08235294117647059,0.396078431372549,0.7529411764705882}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+\clip(-4.3,-1.8) rectangle (4.66,6.3);
+\draw[line width=1.6pt,fill=black,fill opacity=0.10000000149011612] (-1.7968557054903078,4.407531760150524) -- (-1.4281277253898137,4.19767543622625) -- (-1.2182714014655398,4.566403416326744) -- (-1.586999381566034,4.776259740251018) -- cycle; 
+\draw [line width=2pt,color=wrwrwr] (-0.22,2.28) circle (2.8460498941515415cm);
+\draw [line width=2pt,color=wrwrwr,domain=-4.3:4.66] plot(\x,{(--6.506910141663035--0.09945146025651175*\x)/2.844311763336229});
+\draw [line width=2pt,color=wrwrwr] (-3.064311763336229,2.180548539743488)-- (-1.586999381566034,4.776259740251018);
+\draw [line width=2pt,color=wrwrwr] (-1.586999381566034,4.776259740251018)-- (2.624311763336229,2.3794514602565116);
+\begin{scriptsize}
+\draw [fill=rvwvcq] (-0.22,2.28) circle (2.5pt);
+\draw[color=rvwvcq] (-0.06,2.71) node {$A$};
+\draw [fill=rvwvcq] (2.12,3.9) circle (2.5pt);
+\draw[color=rvwvcq] (2.28,4.33) node {$B$};
+\draw [fill=rvwvcq] (2.624311763336229,2.3794514602565116) circle (2.5pt);
+\draw[color=rvwvcq] (2.78,2.81) node {$C$};
+\draw [fill=wrwrwr] (-3.064311763336229,2.180548539743488) circle (2pt);
+\draw[color=wrwrwr] (-2.9,2.57) node {$D$};
+\draw [fill=rvwvcq] (-1.586999381566034,4.776259740251018) circle (2.5pt);
+\draw[color=rvwvcq] (-1.42,5.21) node {$E$};
+\end{scriptsize}
+\end{tikzpicture}

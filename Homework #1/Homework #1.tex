@@ -1,0 +1,172 @@
+% !TEX TS-program = pdflatexmk
+\documentclass[12pt]{amsart}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage[margin=1in]{geometry}
+\usepackage{pgf,tikz,pgfplots}
+\usepackage{amsmath,amssymb,amsthm,latexsym,graphicx}
+\usepackage[normalem]{ulem}
+\usepackage{setspace} %used for doublespacing, etc.
+\usepackage{hyperref}
+\usepackage{cancel}
+\usepackage[dvipsnames,usenames]{color}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+	\renewcommand{\headrulewidth}{0.5pt} % and the line
+	\headsep=1cm
+	
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\newcommand*\mean[1]{\bar{#1}}
+%Some useful environments.
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{axiom}{Axiom}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem*{exercise}{Exercise}%[section]
+
+%For GeoGebra
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\newcommand{\degre}{\ensuremath{^\circ}}
+
+
+%Some useful shortcuts for our favorite sets of numbers
+%Note, you can use these WITHOUT entering math mode
+
+\newcommand{\RR}{\ensuremath{\mathbb R}} 
+\newcommand{\NN}{\ensuremath{\mathbb N}}
+\newcommand{\ZZ}{\ensuremath{\mathbb Z}}
+\newcommand{\QQ}{{\ensuremath\mathbb Q}}
+\newcommand{\CC}{\ensuremath{\mathbb C}}
+\newcommand{\EE}{{\ensuremath\mathbb E}}
+
+%Some useful shortcuts for formatting lists
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+
+%Some useful shortcuts for formatting mathematical symbols
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\oimp}[1]{\overset{#1}{\iff}} %labeled iff symbol
+\newcommand{\bv}[1]{\ensuremath{ \vec{\mathbf{#1}}} } %makes a vector.
+\newcommand{\mc}[1]{\ensuremath{\mathcal{#1}}} %put something in caligraphic font
+\newcommand{\bsl}[1]{\texttt{\symbol{92}{\em #1}}} %for backslashes.
+\newcommand{\normale}{\trianglelefteq}
+\newcommand{\normal}{\triangleleft}
+
+%Commenting tools --- You can ignore these, but if you have a question about latex and send me your source file, I'll use them to explain stuff to you.
+\newcommand{\mpg}[1]{\marginpar{ #1}} %to put comments in margins
+\usepackage{soul}
+\definecolor{highlight}{rgb}{1,0.6,0.6}
+\sethlcolor{highlight}
+\newcommand{\hlm}[1]{\colorbox{highlight}{$\displaystyle #1$}}
+\newtheoremstyle{mycomment}{\topsep}{-0in}{\small \itshape \sffamily}{}{\small \itshape\sffamily}{:}{.5em}{}
+\theoremstyle{mycomment}
+\newtheorem*{acomment}{\color{BrickRed}{Comment}}
+\newcommand{\com}[1]{{\color{OliveGreen}\begin{acomment}{#1} 
+\end{acomment}\noindent}}
+\newcommand{\red}[1]{{\color{BrickRed} #1}}
+\newcommand{\blue}[1]{{\color{MidnightBlue}#1}}
+\newcommand{\green}[1]{{\color{OliveGreen}#1}}
+\newcommand{\mwrong}[2]{\red{\cancel{#1}}\green{#2}}
+\newcommand{\wrong}[2]{\red{\sout{#1}}\green{#2}}
+\definecolor{OliveGreen}{rgb}{.3,.5,.2}
+\definecolor{MidnightBlue}{rgb}{.3,.4,.6}
+\newcommand{\pts}[1]{\hfill\blue{{#1}/5}}
+
+\chead{MATH F305}
+\pagestyle{fancy}
+%Modify these items:
+\rhead{\emph{Stefano Fochesatto}}
+\lhead{\emph{HW \#1 --- 1/22/20}}
+
+
+\begin{document}
+
+\thispagestyle{fancy}
+\setstretch{2.5} %Use for 2.5 spacing. This is the default setting for homework in this class... so I have space to write comments.
+%\doublespacing %Use for double spacing
+%\singlespacing %Use for single spacing
+
+\begin{exercise}[\bigcirc 1.2 (45 min)] Suppose an artists is standing distance $d$ from a picture plane, looking at a line segment that is parallel to the picture plane. If the length of the line segment is $L$, can we determine the length $l$ if it's image? What other information might we need? Why do we need to know that the segment is parallel to the picture plane.   
+
+\begin{proof} Consider the following image,
+
+\begin{figure}[ht]
+\caption{Top view of artist}
+\centering
+\includegraphics[width=\textwidth]{"Homework1prob".png}
+\end{figure}
+
+
+We can see from the image that angles $a$ and $a_1$ are the same and so are $b$ and $b_1$. This is because the canvas and the line segment $L$ are parallel and are intersected at the same angle by the viewer lines. In this case those viewer lines are referred to as transversal lines. With these two angles and the length of $d$ we get that the length of $l = \frac{d}{tan(a)}+\frac{d}{tan(b)}$ from some simple trigonometry. In the case that the canvas and line segment $L$ are not parallel it seems that any method for finding $l$ that relies on similar triangles is no longer viable. For our method the angles $a$ and $a_1$ would no longer be the same, and likewise with $b$ and $b_1$ but we could still find $l$ given the proper angle $a$ and $b$.
+
+
+%
+%I've included below a sample diagram using TikZ. I did this by using the ``Download'' command in GeoGebra. Note that I had to strip out some of the \LaTeX\ commands from the exported file to include it in this way here.
+%
+%
+%\bc% this is my centering command from above.
+%\scalebox{.75}%This rescales the diagram
+%{
+%\input{sample.tkz}}\ec
+\end{proof}
+\end{exercise}
+
+\begin{exercise}[\Box 1.1 (30 min)] Suppose that an artists sets up a vertical canvas across a sidewalk, looking down the sidewalk as it extends into the distance. The artist includes in the drawing the image of a building on one edge of the sidewalk, such that the front face of the building is parallel to the sidewalk and perpendicular to the vertical picture plane. The front of the building contains many rectangular windows thats are all the same size and shape.\\\\
+(T,F) Then a window jamb on the ground floor that is further down the road (and is therefore further from the artist) will have a shorter image on the picture plane than that of the jamb on a near window on the ground floor.
+\begin{proof}[Answer:] (True) (Proof by Contradiction:) Suppose that the image of the farthest window jamb has a height greater than or equal to the image of the closest window jamb. Now consider the following image,
+
+
+\begin{figure}[ht]
+\caption{Side view of building.}
+\centering
+\includegraphics[width=\textwidth]{"Building proof Side view1".png}
+\end{figure}
+
+
+
+We have just supposed that green line segment $m'$ is larger than pink line segment $f'$. It is equivalent to say that the angle formed by $\angle L_2AL$ must be larger that the angle formed by $\angle H_2AH$. We know from geometry that there are only two ways two increase an angle in a triangle, the first is two in crease the length of the opposite side, which in terms of our problem would mean that the windows are not all the same size, the second involved decreasing the distance from that angle's vertex and the opposite side, which would mean that the farthest window jamb is actually the the same distance away as the closest or is closer than the closest (makes no sense I know). Therefore the farthest window jamb must appear shorter than the closest one.
+\end{proof}
+\end{exercise}
+
+
+
+
+
+
+\begin{exercise}[\Box 1.2 (30 min)] Let us assume the same conditions as in the previous statement.\\\\
+(T,F)  Then a window jamb on the second floor that is directly above a window on the ground floor (and is therefore further from the artist) will have a shorter image on the picture plane than that oof a jamb on the ground-floor window.
+\begin{proof}[Answer:] (False) With all the same assumptions it must be true that that the vertical edge of the window jamb is parallel to the canvas. If that is the case we can take advantage of the transversal lines that are formed, and make some assertions on the similarities of the triangles that are formed. Consider the following image,
+
+
+\begin{figure}[ht]
+\caption{Side view of building.}
+\centering
+\includegraphics[width=\textwidth]{"Building proof Side view".png}
+\end{figure}
+
+
+We can see that because the canvas and $\overline{JH}$ are parallel we are able to assert that $\angle a$ and $\angle a'$ are equivalent, $\angle b$ and $\angle b'$ are equivalent, $\angle c$ and $\angle c'$ are equivalent, and $\angle d$ and $\angle d'$ are equivalent. Therefore by AAA similarity we know, $\Delta JAH \sim \Delta NAP$. Since those two triangles are similar we know that segments $\overline{JH}$ and $\overline{NP}$ must be proportional and therfore segment $\overline{AI}$ must intersect them proportionally as well. Thus if the two window jambs are the same height in real life, and they appear parallel to the canvas, their images on the canvas will have the same height as well. 
+\end{proof}
+\end{exercise}
+
+
+ \end{document}
+ \end
+
+  

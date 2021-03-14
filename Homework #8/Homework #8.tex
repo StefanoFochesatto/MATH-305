@@ -1,0 +1,277 @@
+% !TEX TS-program = pdflatexmk
+\documentclass[12pt]{amsart}
+
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{amsmath,amssymb,amsthm,latexsym,graphicx}
+\usepackage[normalem]{ulem}
+\usepackage{setspace} %used for doublespacing, etc.
+\usepackage{hyperref}
+\usepackage{cancel}
+\usepackage[dvipsnames,usenames]{color}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+	\renewcommand{\headrulewidth}{0.5pt} % and the line
+	\headsep=1cm
+	\usepackage{gensymb}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+%Some useful environments.
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{axiom}{Axiom}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem*{exercise}{Exercise}%[section]
+
+%For GeoGebra
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\newcommand{\degre}{\ensuremath{^\circ}}
+
+
+%Some useful shortcuts for our favorite sets of numbers
+%Note, you can use these WITHOUT entering math mode
+
+\newcommand{\RR}{\ensuremath{\mathbb R}} 
+\newcommand{\NN}{\ensuremath{\mathbb N}}
+\newcommand{\ZZ}{\ensuremath{\mathbb Z}}
+\newcommand{\QQ}{{\ensuremath\mathbb Q}}
+\newcommand{\CC}{\ensuremath{\mathbb C}}
+\newcommand{\EE}{{\ensuremath\mathbb E}}
+
+%Some useful shortcuts for formatting lists
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\usepackage{float}
+
+
+%Some useful shortcuts for formatting mathematical symbols
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\oimp}[1]{\overset{#1}{\iff}} %labeled iff symbol
+\newcommand{\bv}[1]{\ensuremath{ \vec{\mathbf{#1}}} } %makes a vector.
+\newcommand{\mc}[1]{\ensuremath{\mathcal{#1}}} %put something in caligraphic font
+\newcommand{\bsl}[1]{\texttt{\symbol{92}{\em #1}}} %for backslashes.
+\newcommand{\normale}{\trianglelefteq}
+\newcommand{\normal}{\triangleleft}
+
+%Commenting tools --- You can ignore these, but if you have a question about latex and send me your source file, I'll use them to explain stuff to you.
+\newcommand{\mpg}[1]{\marginpar{ #1}} %to put comments in margins
+\usepackage{soul}
+\definecolor{highlight}{rgb}{1,0.6,0.6}
+\sethlcolor{highlight}
+\newcommand{\hlm}[1]{\colorbox{highlight}{$\displaystyle #1$}}
+\newtheoremstyle{mycomment}{\topsep}{-0in}{\small \itshape \sffamily}{}{\small \itshape\sffamily}{:}{.5em}{}
+\theoremstyle{mycomment}
+\newtheorem*{acomment}{\color{BrickRed}{Comment}}
+\newcommand{\com}[1]{{\color{OliveGreen}\begin{acomment}{#1} 
+\end{acomment}\noindent}}
+\newcommand{\red}[1]{{\color{BrickRed} #1}}
+\newcommand{\blue}[1]{{\color{MidnightBlue}#1}}
+\newcommand{\green}[1]{{\color{OliveGreen}#1}}
+\newcommand{\mwrong}[2]{\red{\cancel{#1}}\green{#2}}
+\newcommand{\wrong}[2]{\red{\sout{#1}}\green{#2}}
+\definecolor{OliveGreen}{rgb}{.3,.5,.2}
+\definecolor{MidnightBlue}{rgb}{.3,.4,.6}
+\newcommand{\pts}[1]{\hfill\blue{{#1}/5}}
+\usepackage{scalerel,amssymb}
+
+\def\mcirc{\mathbin{\scalerel*{\bigcirc}{t}}}
+\def\msquare{\mathord{\scalerel*{\Box}{gX}}}
+
+\chead{MATH F305}
+\pagestyle{fancy}
+%Modify these items:
+\rhead{\emph{Stefano Fochesatto}}
+\lhead{\emph{HW \#8 --- 2/23/20}}
+
+
+\begin{document}
+
+\thispagestyle{fancy}
+\setstretch{1.5} %Use for 2.5 spacing. This is the default setting for homework in this class... so I have space to write comments.
+%\doublespacing %Use for double spacing
+%\singlespacing %Use for single spacing
+
+\begin{exercise}[$\bigcirc$ Worksheet Activity F] Does the result for the Star Trek lemma hold if $OQPR$ is a convex quadrilateral?
+\begin{proof}[Answer:] Consider a circle $S$, with center $O$ that contains the convex quadrilateral $OQPR$. 
+
+\begin{figure}[H]
+\caption{}
+\centering
+\includegraphics[width=.5\textwidth]{"circle".png}
+\end{figure}
+
+Now consider the inscribed quadrilateral $IQPR$ with point $I$ determined by the diameter of $S$ from point $P$.
+
+\begin{figure}[H]
+\caption{}
+\centering
+\includegraphics[width=.5\textwidth]{"circledia".png}
+\end{figure}
+
+ Note that by our definition of point $I$ we know that $\overline{IP}$ is a diameter therefore through Thale's Theorem, know that
+\begin{equation}
+\angle IQP = \angle IRP = 90^{\degree}.
+\end{equation}
+Since the interior angles of every quadrilateral sum to $360^{\degree}$ we can surmise that,
+\begin{equation}
+\angle QPR + \angle QIR = 180^{\degree}.
+\end{equation}
+Note that from what we have shown in the exercises before (Recall that we showed the result of the Star Trek lemma but not fully generalized for reflex angles) we know that,
+\begin{equation}
+\frac{1}{2} \angle QOR = \angle QIR.
+\end{equation} 
+Note that we can describe $\angle QOR$ by it's reflex angle $\widehat{QOR}$,
+\begin{equation}
+ \angle QOR = 360^{\degree} -\widehat{QOR}.
+\end{equation}
+Now consider $\angle QPR$ we arrive at our result through algebra,
+\begin{align*}
+\angle QPR &= 180^{\degree} - \angle QIR\\
+&= 180^{\degree} - \frac{1}{2} \angle QOR \\
+&= 180^{\degree} - \frac{1}{2} (360^{\degree} - \widehat{QOR})\\ 
+&= \frac{1}{2} \widehat{QOR}
+\end{align*}
+
+\end{proof}
+\end{exercise}
+
+
+\begin{exercise}[$\bigcirc$ Worksheet Activity G] There are two more arrangements of $P$,$Q$, and $R$ that one need to consider if one wishes to state the Star Trek Lemma in full generality. Draw pictures of them.
+\begin{proof}[Answer:] Consider the following arrangements of $P$,$Q$, and $R$.
+\begin{figure}[H]
+\caption{}
+\centering
+\includegraphics[width=.5\textwidth]{"hourglass".png}
+\end{figure}
+\begin{figure}[H]
+\caption{}
+\centering
+\includegraphics[width=.5\textwidth]{"tri".png}
+\end{figure}
+
+
+\end{proof}
+\end{exercise}
+
+\begin{exercise}[$\msquare$ Monson 5 (p.32)] The point of intersection of the right bisectors of two sides of a triangle is equidistant from the three vertices.\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{"Triangle".png}
+\end{figure}
+
+
+
+
+
+\begin{proof}[Answer:] Consider $\triangle ABC$ and the right bisectors $\overline{FE}$ and $\overline{FD}$. Consider the two right triangles $\triangle FEB$ and $\triangle FEC$. Note that they share the same side $\overline{FE}$ and by definition we know that $\overline{BE} = \overline{EC}$. Therefore we $\triangle FEB \cong \triangle FEC$ by $SAS$. Thus it follows that $\angle ECF = \angle EBF$, by the converse of Pons Asinorum, we know that $\overline{CF} = \overline{FB}$. \\
+
+Consider the two right triangles $\triangle FDC$ and $\triangle FDA$. Note that they share the same side $\overline{FD}$ and by definition we know that $\overline{CD} = \overline{DA}$. Therefore we $\triangle FDC \cong \triangle FDA$ by $SAS$. Thus it follows that $\angle FCD = \angle FAD$, and by the converse of Pons Asinorum we know that $\overline{CF} = \overline{AF}$.\\
+Thus $\overline{CF} = \overline{FB} = \overline{AF}$. 
+\end{proof}
+\end{exercise}
+
+
+\begin{exercise}[$\msquare$ Monson 3.G (p.62)] For an external point $P$ let the segment $\overline{PT}$ be tangent to a circle $T$ and let another line $\overline{PAB}$ intersect the circle at $A$ and $B$. Show that
+\begin{equation*}
+(PT)^2 = (PA)(PB)
+\end{equation*}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{"Triangle3".png}
+\end{figure}
+
+\begin{proof}[Answer:] Consider a circle with center $O$ and an external point $P$ and tangent  $\overline{PT}$ and let another line $\overline{PAB}$ intersect the circle at $A$ and $B$. Now construct line segments $\overline{BT}$, $\overline{AT}$, $\overline{OT}$ and $\overline{OA}$. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{"Triangle4".png}
+\end{figure}
+
+
+
+
+Note that $2 \angle TBP = \angle TOA$ from the Star Trek Lemma. Let $C$ be the midpoint of $\overline{AT}$ and construct $\overline{OC}$
+
+
+
+
+
+Now construct an angle bisecting segment $\overline{OC}$ where $C$ is the midpoint of $\overline{AT}$. Since $\overline{OC}$ bisects $\angle TOA$ we know that,
+\begin{equation*}
+\angle COT =  \frac{1}{2}\angle TOA = \angle TBP
+\end{equation*}
+Note that,
+\begin{equation*}
+\angle OTC = 90^{\degree} - \angle COT
+\end{equation*}
+and since a tangent forms a right angle with the radius of the circle we also know that,
+\begin{equation*}
+90^{\degree} = \angle OTC + \angle ATP
+\end{equation*}
+By substitution and algebra we get that 
+\begin{equation*}
+\angle ATP = \angle COT = \angle TBP
+\end{equation*}
+By Angle-Angle similarity we get that the $\triangle PAT \sim \triangle PTB$ since $\angle ATP = \angle TBP$ and $\angle BPT = \angle APT$. Thus by similarity we get,
+\begin{equation*}
+\frac{PB}{PT} = \frac{PT}{PA}
+\end{equation*}
+cross multiply to obtain,
+\begin{equation*}
+(PT)^2 = (PA)(PB).
+\end{equation*}
+
+
+
+
+
+
+
+
+
+
+
+\end{proof}
+
+
+
+
+
+
+
+
+\end{exercise}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ \end{document}
+ \end
+
+  

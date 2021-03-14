@@ -1,0 +1,194 @@
+% !TEX TS-program = pdflatexmk
+\documentclass[12pt]{amsart}
+
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage[margin=1in]{geometry}
+\usepackage{float}
+
+\usepackage{amsmath,amssymb,amsthm,latexsym,graphicx}
+\usepackage[normalem]{ulem}
+\usepackage{setspace} %used for doublespacing, etc.
+\usepackage{hyperref}
+\usepackage{cancel}
+\usepackage[dvipsnames,usenames]{color}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+	\renewcommand{\headrulewidth}{0.5pt} % and the line
+	\headsep=1cm
+	
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+%Some useful environments.
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{axiom}{Axiom}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem*{exercise}{Exercise}%[section]
+
+%For GeoGebra
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\newcommand{\degre}{\ensuremath{^\circ}}
+
+
+%Some useful shortcuts for our favorite sets of numbers
+%Note, you can use these WITHOUT entering math mode
+
+\newcommand{\RR}{\ensuremath{\mathbb R}} 
+\newcommand{\NN}{\ensuremath{\mathbb N}}
+\newcommand{\ZZ}{\ensuremath{\mathbb Z}}
+\newcommand{\QQ}{{\ensuremath\mathbb Q}}
+\newcommand{\CC}{\ensuremath{\mathbb C}}
+\newcommand{\EE}{{\ensuremath\mathbb E}}
+
+%Some useful shortcuts for formatting lists
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+
+%Some useful shortcuts for formatting mathematical symbols
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\oimp}[1]{\overset{#1}{\iff}} %labeled iff symbol
+\newcommand{\bv}[1]{\ensuremath{ \vec{\mathbf{#1}}} } %makes a vector.
+\newcommand{\mc}[1]{\ensuremath{\mathcal{#1}}} %put something in caligraphic font
+\newcommand{\bsl}[1]{\texttt{\symbol{92}{\em #1}}} %for backslashes.
+\newcommand{\normale}{\trianglelefteq}
+\newcommand{\normal}{\triangleleft}
+
+%Commenting tools --- You can ignore these, but if you have a question about latex and send me your source file, I'll use them to explain stuff to you.
+\newcommand{\mpg}[1]{\marginpar{ #1}} %to put comments in margins
+\usepackage{soul}
+\definecolor{highlight}{rgb}{1,0.6,0.6}
+\sethlcolor{highlight}
+\newcommand{\hlm}[1]{\colorbox{highlight}{$\displaystyle #1$}}
+\newtheoremstyle{mycomment}{\topsep}{-0in}{\small \itshape \sffamily}{}{\small \itshape\sffamily}{:}{.5em}{}
+\theoremstyle{mycomment}
+\newtheorem*{acomment}{\color{BrickRed}{Comment}}
+\newcommand{\com}[1]{{\color{OliveGreen}\begin{acomment}{#1} 
+\end{acomment}\noindent}}
+\newcommand{\red}[1]{{\color{BrickRed} #1}}
+\newcommand{\blue}[1]{{\color{MidnightBlue}#1}}
+\newcommand{\green}[1]{{\color{OliveGreen}#1}}
+\newcommand{\mwrong}[2]{\red{\cancel{#1}}\green{#2}}
+\newcommand{\wrong}[2]{\red{\sout{#1}}\green{#2}}
+\definecolor{OliveGreen}{rgb}{.3,.5,.2}
+\definecolor{MidnightBlue}{rgb}{.3,.4,.6}
+\newcommand{\pts}[1]{\hfill\blue{{#1}/5}}
+
+\chead{MATH F305}
+\pagestyle{fancy}
+%Modify these items:
+\rhead{\emph{Stefano Fochesatto}}
+\lhead{\emph{HW \#4 Revisions --- 2/12/20}}
+
+
+\begin{document}
+
+\thispagestyle{fancy}
+\setstretch{2.5} %Use for 2.5 spacing. This is the default setting for homework in this class... so I have space to write comments.
+%\doublespacing %Use for double spacing
+%\singlespacing %Use for single spacing
+
+\begin{exercise}[\bigcirc.3.1] 
+Figure 3.3 shows an aerial view of a fenced-in area. Around this area there are low stone walls, and at each of the four corners is a flag on a tall post. Each flag has one of four letters(P,O,S, or T)\\
+
+
+Figure 3.4 shows how a person standing at point X outside the stone walls would read the flags from left to right, as "STOP" whereas a person standing at point Y would read from left to right "PSOT". What other "words" can we read by standing in different locations? Can we find a location where we can see,
+
+\begin{proof} 
+\begin{enumerate}
+\item POST?
+Consider the following placement if the viewer, 
+\begin{figure}[H]
+\centering
+\includegraphics[width=.5\textwidth]{"post".png}
+\end{figure}
+
+\item OPTS?
+Consider the following placement if the viewer, 
+\begin{figure}[H]
+\centering
+\includegraphics[width=.5\textwidth]{"opts".png}
+\end{figure}
+
+\item POTS?
+Consider the following placement if the viewer, 
+\begin{figure}[H]
+\centering
+\includegraphics[width=.5\textwidth]{"pots".png}
+\end{figure}
+
+\item TOPS?
+Consider the following placement if the viewer, 
+\begin{figure}[H]
+\centering
+\includegraphics[width=.5\textwidth]{"tops".png}
+\end{figure}
+
+
+\item What other "words" can we read by standing in different locations?\\
+Consider the map of the fenced in area,
+
+\begin{figure}[H]
+\centering
+\caption{Fenced in Area}
+\includegraphics[width=\textwidth]{"SPOT".png}
+\end{figure}
+Note that the rectangular shaped perimeter actually extends out indefinitely.
+The viewer would be any arbitrary point outside of the fenced in area. \\
+
+Suppose we build a line from each pair of posts. Let the viewer lie in one of the colored areas. Now consider the line that is directly to the left of the viewer (if viewer is placed in an area on the top of the map the line to the left of the viewer would be to the right of the reader because the viewer is always facing the fenced in area). Since the viewer is always looking from left to right they will always see the post that lies closest on that line first and then the farther post. Now consider the line that is directly to the right of the viewer. On this line the viewer actually sees the post thats is farther away first and then the closer one. 
+
+
+
+
+\end{enumerate}
+
+\end{proof}
+\end{exercise}
+
+
+\begin{exercise}[\Box.3.1] 
+An artist stands exactly on top of the intersection of a pair of perpendicular, horizontal lines(perhaps one is the east-west track for a trolley, and another is the north-south track of the trolley). That is, the artist's feet are on these lines and her head is directly above them.
+The artist then sets up a large, vertical canvas in front of her so that it crosses both lines (perhaps it runs southwest to northeast).
+Describe the images of these two lines. Prove that your description is correct by drawing a top view and a side view and referring to those diagrams in you explanation. 
+
+\begin{proof} Consider the following perspective image of the scene that is described above
+\begin{figure}[H]
+\caption{Perspective model of scene}
+\centering
+\includegraphics[width=\textwidth]{"Artistsview".png}
+\end{figure}
+ Figure 2 is a perspective model of the scene illustrated above. The red and green lines that lie on the grey plane are the lines that the artist is standing on (they are also the $x$ and $y$ axis). The point labeled ARTIST is the viewpoint of the artist. Note that ARTIST lies on the vertical blue line that is the $z$ axis. The cyan plane is the artist's canvas.\\
+ 
+We want to show how to get the image of the red and green lines onto the cyan plane. Note that point $F$ and $H$ lie on the green. To see where $\overline{FH}$ project onto the cyan plane all we have to do is draw a line from each of those points that uses point ARTIST and then see where those lines intersect the cyan plane. Note that the resultant intersection gives us points $I$ and $J$. Since two points determine a line for now we have shown that $\overline{FH}$ projects line $\overline{IJ}$ into the canvas. Using the same procedure we know that the $\overline{CG}$ projects line $\overline{KL}$ onto the canvas. \\
+ 
+ Consider a line that is adjacent to point ARTIST, intersects $\overline{IJ}$ but does not intersect $\overline{FH}$. This line tells us that there is a whole in $\overline{IJ}$ and the same for  $\overline{KL}$. \\
+ 
+ Suppose $\overline{IJ}$ intersects $\overline{KL}$. If that is the case there must be a point where $\overline{FH}$ and $\overline{CG}$ intersect that has a projection on the cyan plane. We know from the problem statement that the point where $\overline{FH}$ and $\overline{CG}$ intersect is directly below the point ARTIST. If we construct a line from the point of intersection of $\overline{FH}$ and $\overline{CG}$ and the point ARTIST we get the blue line (or z axis) that is parallel to the cyan plane. This is because the problem statement states that the canvas is "vertical". I would assume that that means that the plane that represents the canvas contains a line with the same direction as the blue line. Since the blue line will never intersect the cyan plane, because they are parallel we can be certain that  $\overline{IJ}$ doesn't intersects $\overline{KL}$ and therefore they must be parallel. \\
+ 
+Thus the image that is projected onto the canvas is a set of parallel lines each with one point missing. 
+
+\end{exercise}
+
+
+
+
+
+ \end{document}
+
+
+  
